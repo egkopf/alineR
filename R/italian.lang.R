@@ -250,10 +250,10 @@ italian.lang <-
         }
       }
       
-      if(xWord[index] %notin% VALID_CHARS {
+      if(xWord[index] %notin% VALID_CHARS) {
         message(paste("Unrecognized character ", xWord[index], " in Italian word ", x))
         xWord = xWord[-index]
-      })
+      }
 
       return("Invalid italian word.")
 
