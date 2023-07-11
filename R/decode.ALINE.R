@@ -4,7 +4,7 @@
 
 decode.ALINE <-
 function(x,y,m1=NULL,m2=NULL) {
-  map<-map(m1,m2)
+  map<-mapline(m1,m2)
   diacritics<-read.csv("./data/aline_diacritic_set.csv")
   
   splitx<-strsplit(x,"")

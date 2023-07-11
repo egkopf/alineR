@@ -43,7 +43,7 @@ function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,m1=NULL,m2=NULL,mark=FALSE,alignme
 	if (NA %in% x | NA %in% y ) stop("NA not permitted.")   
 	
   # somehow produce, for each pair of tokens, the similarity score and the optimal alignment
-	a<-apply(cbind(x,y),1,FUN=raw.alignment,...) # the problem here was that feature.weights was nullifying the first 
+	a<-apply(cbind(x,y),1,FUN=raw.alignment) # the problem here was that feature.weights was nullifying the first 
 	                                         # entry of feature weights, "Syllabic". big problem. Modified by E.K.
 	
 	# a<-apply(cbind(x,y),1,FUN=raw.alignment,feature.weights)

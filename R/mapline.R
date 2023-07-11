@@ -2,11 +2,9 @@
 # Authors: Sean Downey (sean@codexdata.com) and Guowei Sun (gwsun@umd.edu)
 # This software is distributed under GPL-3.
 
-map<-function(m1,m2){
+mapline<-function(m1,m2){
 
   if(length(m1)!=length(m2)) stop("vector has different length")
-  # ALINE.map<-NULL
-  # data(ALINE.map,envir=environment())
   
   map<-read.csv("./data/aline_mapset_workingcopy.csv")
 

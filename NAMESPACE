@@ -1,4 +1,4 @@
-export("aline","raw.alignment","encode.ALINE","decode.ALINE","map","features.plot","ALINE.segments","show.map", "italian.lang")
+export("aline","raw.alignment","encode.ALINE","decode.ALINE","mapline","features.plot","ALINE.segments","show.map","italian.lang")
 #export("aligned_string","random_parameter","crossover","ES.update","fitness_count","selection")
 #export("Al.alineR","data.alineR","raw.data.alineR","candidate.alignment.alineR","ranking.alineR")
 export("generate.training","optimize.features","optimization.GA")
