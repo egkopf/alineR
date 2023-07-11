@@ -8,7 +8,7 @@ map<-function(m1,m2){
   # ALINE.map<-NULL
   # data(ALINE.map,envir=environment())
   
-  map<-read.csv("aline_mapset_workingcopy.csv")
+  map<-read.csv("./data/aline_mapset_workingcopy.csv")
 
   # map<-show.map()
   Aline.v<-c('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
@@ -49,7 +49,7 @@ map<-function(m1,m2){
   }
   }
   else{
-  map<-read.csv("aline_mapset_workingcopy.csv")
+  map<-read.csv("./data/aline_mapset_workingcopy.csv")
   }
   return(map)
 }

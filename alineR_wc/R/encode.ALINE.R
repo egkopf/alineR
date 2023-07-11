@@ -5,7 +5,7 @@
 encode.ALINE <-
   function(x, mark=FALSE, m1=NULL, m2=NULL){
     map<-map(m1,m2)
-    diacritics<-read.csv("aline_diacritic_set.csv")
+    diacritics<-read.csv("./data/aline_diacritic_set.csv")
 
     v<-intToUtf8(c(65:90, 97:122), multiple=T) 
     `%nin%` <- function (x, table) match(x, table, nomatch = 0L) == 0L 
