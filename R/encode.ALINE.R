@@ -3,8 +3,8 @@
 # This software is distributed under GPL-3.
 
 encode.ALINE <-
-  function(x, mark=FALSE, m1=NULL, m2=NULL){
-    map<-mapline(m1,m2)
+  function(x, mark=FALSE){
+    map<-read.csv("./data/aline_mapset_workingcopy.csv")
     diacritics<-read.csv("./data/aline_diacritic_set.csv")
 
     v<-intToUtf8(c(65:90, 97:122), multiple=T) 
@@ -19,7 +19,6 @@ encode.ALINE <-
         for(j in 1:nrow(map)){ 
           # if( utf8ToInt(i) == map$IPA[j] ){
           if( utf8ToInt(i) == map$U.Val[j] ){
-            i <- intToUtf8(unlist(strsplit(as.character(map$A.Val[j]), " ")))
             catch<-TRUE
             break
           } 
@@ -36,7 +35,7 @@ encode.ALINE <-
         }
         
         if (!catch && i %nin% v){
-          message(paste("Invalid character:",i,"in",word))
+          message(paste("Invalid character: ",i,"in ",word))
           i <- ifelse(mark,'@','') 
         }
         

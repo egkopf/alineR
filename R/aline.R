@@ -4,11 +4,12 @@
 # Includes modified C++ code originally developed by Greg Kondrak (c) 2000
 
 aline <-
-function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,m1=NULL,m2=NULL,mark=FALSE,alignment=TRUE,...){
+function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,mark=FALSE,alignment=TRUE,...){
   
   if (!is.null(lang1)) {
     w1<-lapply(w1,lang1)
   }
+  
   if (!is.null(lang2)) {
     w2<-lapply(w2,lang2)
   }
@@ -30,8 +31,8 @@ function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,m1=NULL,m2=NULL,mark=FALSE,alignme
   ind<-as.integer(levels(as.factor(c(n1,n2))))
   
   # converts each element of the input to an Aline representation
-	x<-encode.ALINE(x1, mark=mark,m1,m2)
-	y<-encode.ALINE(y1, mark=mark,m1,m2)
+	x<-encode.ALINE(x1, mark=mark)
+	y<-encode.ALINE(y1, mark=mark)
 
 	names(x)<-NULL
 	names(y)<-NULL
@@ -90,8 +91,8 @@ function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,m1=NULL,m2=NULL,mark=FALSE,alignme
 	if(alignment==T){
 		
     for(i in 1:length(x)){
-      a[[i]]$alignment1<-decode.ALINE(x1[i],a[[i]]$alignment1,m1,m2)
-      a[[i]]$alignment2<-decode.ALINE(y1[i],a[[i]]$alignment2,m1,m2)
+      a[[i]]$alignment1<-decode.ALINE(x1[i],a[[i]]$alignment1)
+      a[[i]]$alignment2<-decode.ALINE(y1[i],a[[i]]$alignment2)
     }
     
     p=1

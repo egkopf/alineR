@@ -3,8 +3,8 @@
 # This software is distributed under GPL-3.
 
 decode.ALINE <-
-function(x,y,m1=NULL,m2=NULL) {
-  map<-mapline(m1,m2)
+function(x,y) {
+  map<-read.csv("./data/aline_mapset_workingcopy.csv")
   diacritics<-read.csv("./data/aline_diacritic_set.csv")
   
   splitx<-strsplit(x,"")

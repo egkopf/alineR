@@ -3,51 +3,52 @@
 # This software is distributed under GPL-3.
 
 italian.lang <-
-  function(x, mark=FALSE, m1=NULL, m2=NULL){
-    
+  function(x){
+
+    VALID_CHARS = c("a", "à", "e", "è", "é", "i", "ì", "í", "o", "ò", "ó", "u", "ù", "ú", "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s" ,"t", "v", "w", "x", "y", "z")
+
     VOWELS = c("a", "à", "e", "è", "é", "i", "ì", "í", "o", "ò", "ó", "u", "ù", "ú")
     I_VOWELS = c("i", "ì", "í")
     SOFT_VOWELS = c("e", "è", "é", "i", "ì", "í")
     HARD_VOWELS = c("a", "à", "o", "ò", "ó", "u", "ù", "ú")
-    
+
     CONSONANTS = c("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s" ,"t", "v", "w", "x", "y", "z")
     VOICED_CONSONANTS = c("b","d","g","m")
-    
+
     STANDARD_CONSONANTS = c("b","d","f","l","m","n","p","r","t","v")
     DYNAMIC_CONSONANTS = c("c","g")
     LOAN_CONSONANTS = c("j","k","w","x","y")
     EXCEPTIONS = c("q","h","s","z")
-    
+
     PUNCTUATION = c("'")
-    
+
+    map<-read.csv("./data/aline_mapset_workingcopy.csv")
+    ipaRep<-""
+    index<-1
+    xWord<-unlist(strsplit(tolower(x), ""))
     
     geminate<-function(x,index) {
       if (length(x) == index) {return(FALSE)}
       return(x[index] == x[index+1])
     }
-    
-    map<-map(m1,m2)
-    ipaRep<-""
-    index<-1
-    xWord<-unlist(strsplit(tolower(x), ""))
-    
-    
+
+
     while (index <= length(xWord)) {
-      
+
       if(xWord[index] %in% STANDARD_CONSONANTS) {
         if (geminate(xWord, index)) {
           ipaRep = append(ipaRep, xWord[index])
           ipaRep = append(ipaRep, ":")
           index<-index+2
           next
-        } 
+        }
         else{
           ipaRep = append(ipaRep, xWord[index])
           index<-index+1
           next
         }
       }
-      
+
       if(xWord[index] %in% EXCEPTIONS) {
         if (xWord[index] == "q" && xWord[index+1] == "u" && xWord[index+2] %in% VOWELS) {
           ipaRep = append(ipaRep, "k")
@@ -91,9 +92,9 @@ italian.lang <-
                 index<-index+2
                 next
               }
-              
+
             } else {
-              
+
               if (xWord[index -1] %in% VOWELS && xWord[index +1] %in% VOWELS){
                 ipaRep = append(ipaRep, "z")
                 index<-index+1
@@ -104,17 +105,17 @@ italian.lang <-
                 index<-index+1
                 next
               }
-              
+
             }
           }
-            
+
         }
         if (xWord[index] == "h") {
           index<-index+1
           next
         }
       }
-      
+
       if(xWord[index] %in% LOAN_CONSONANTS) {
         if (xWord[index] == "j" || xWord[index] == "y") {
           ipaRep = append(ipaRep, "j")
@@ -138,15 +139,15 @@ italian.lang <-
           next
         }
       }
-      
+
       if(xWord[index] %in% DYNAMIC_CONSONANTS) {
         gemStatus = FALSE
-        
+
         if (geminate(xWord, index)) {
           index<-index+1
           gemStatus = TRUE
         }
-        
+
         if (xWord[index + 1] == "h") {
           if (xWord[index] == "c") {
             ipaRep = append(ipaRep, "k")
@@ -207,9 +208,9 @@ italian.lang <-
             }
           }
         }
-        
+
       }
-      
+
       if(xWord[index] %in% VOWELS) {
         if (xWord[index] == "a" || xWord[index] == "à") {
           ipaRep = append(ipaRep, "a")
@@ -249,11 +250,16 @@ italian.lang <-
         }
       }
       
+      if(xWord[index] %notin% VALID_CHARS {
+        message(paste("Unrecognized character ", xWord[index], " in Italian word ", x))
+        xWord = xWord[-index]
+      })
+
       return("Invalid italian word.")
-      
+
     }
-    
+
     return(paste((ipaRep), collapse=""))
-    
+
 
   }
