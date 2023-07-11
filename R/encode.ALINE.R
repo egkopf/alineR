@@ -17,8 +17,8 @@ encode.ALINE <-
         catch<-FALSE
         
         for(j in 1:nrow(map)){ 
-          # if( utf8ToInt(i) == map$IPA[j] ){
           if( utf8ToInt(i) == map$U.Val[j] ){
+            i <- intToUtf8(unlist(strsplit(as.character(map$A.Val[j]), " ")))
             catch<-TRUE
             break
           } 
