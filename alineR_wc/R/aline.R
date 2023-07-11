@@ -4,7 +4,15 @@
 # Includes modified C++ code originally developed by Greg Kondrak (c) 2000
 
 aline <-
-function(w1,w2,sim=FALSE,m1=NULL,m2=NULL,mark=FALSE,alignment=TRUE,...){
+function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,m1=NULL,m2=NULL,mark=FALSE,alignment=TRUE,...){
+  
+  if (!is.null(lang1)) {
+    w1<-lapply(w1,lang1)
+  }
+  if (!is.null(lang2)) {
+    w2<-lapply(w2,lang2)
+  }
+  
   n1<-which(is.na(w1)==TRUE)
   n2<-which(is.na(w2)==TRUE)
   

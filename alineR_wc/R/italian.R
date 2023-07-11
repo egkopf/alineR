@@ -3,8 +3,6 @@
 # This software is distributed under GPL-3.
 
 italian <-
-  
-  
   function(x, mark=FALSE, m1=NULL, m2=NULL){
     
     VOWELS = c("a", "à", "e", "è", "é", "i", "ì", "í", "o", "ò", "ó", "u", "ù", "ú")
