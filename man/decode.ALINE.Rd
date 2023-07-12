@@ -6,7 +6,7 @@
 Decode aligned ALINE ASCII output into the original IPA characters while indicating the optimal alignment with vertical bars ('|').
 }
 \usage{
-decode.ALINE(x, y, m1 = NULL, m2 = NULL)
+decode.ALINE(x, y)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -15,12 +15,6 @@ A vector containing the original IPA word.
 }
 \item{y}{
 A vector containing the aligned characters in ALINE notation.
-}
-\item{m1}{
-A vector of IPA characters to encode. See map() for details.
-}
-\item{m2}{
-A vector of ASCII ALINE encodings. See map() for detail.
 }
 }
 

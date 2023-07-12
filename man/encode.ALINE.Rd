@@ -8,7 +8,7 @@ Encode IPA as ALINE ASCII notation
 Translates a vector of IPA words into the ASCII encoding scheme used by aline via ALINE.map. Uses UTF-8 encodings. 
 }
 \usage{
-encode.ALINE(x, mark = FALSE, m1 = NULL, m2 = NULL)
+encode.ALINE(x, mark = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,12 +17,6 @@ A vector of IPA words to encode.
 }
   \item{mark}{
 If FALSE unknown symbols are omitted; if TRUE invalid symbols are replaced with "@".
-}
-  \item{m1}{
-A vector of IPA characters to encode. See map() for detail.
-}
-\item{m2}{
-A vector of ALINE encodings. see map() for detail
 }
 }
 \examples{
@@ -36,7 +30,7 @@ Sean Downey and Guowei Sun
 
 
 \section{ Warning }{
-This function will return a warning if it encounters an IPA symbol not included in the ALINE map or defined by the user. It will then ignore that symbol and decode the rest. Use mark=TRUE to see what is being omitted and map(m1, m2) to provide a new mapping.
+This function will return a warning if it encounters an IPA symbol not included in the ALINE map or defined by the user. It will then ignore that symbol and decode the rest. Use mark=TRUE to see what is being omitted.
 }
 
 \seealso{

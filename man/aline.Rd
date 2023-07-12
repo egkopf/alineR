@@ -8,7 +8,7 @@ Calculate aline distances
 The main user function for returning Aline Distances. Also it provides options for additional outputs such as the raw alignments and individual distance measurements. Word lists are passed as two vectors (w1, w2) such that the nth element of each vector are compared.
 }
 \usage{
-aline(w1, w2, sim = FALSE, m1 = NULL, m2 = NULL, mark=FALSE, alignment = FALSE, feature.weights)
+function(w1,w2,lang1 = NULL,lang2 = NULL,sim = TRUE,mark = TRUE,alignment = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,23 +18,22 @@ A vector of IPA-encoded words.
   \item{w2}{
 A second vector of IPA-encoded words to be aligned with w1.
 }
+\item{lang1}{
+An orthography-to-IPA encoding schema for the input language of words in list w1.
+}
+  \item{m2}{
+An orthography-to-IPA encoding schema for the input language of words in list w2.
+}
   \item{sim}{
 By default calculates the aline distance (normalized between word pairs) as defined in Downey et al. 2008. If TRUE aline similarity scores from (Kondrak 2000) are returned.
 }
-\item{m1}{
-User defined IPA symbol. See map() for details.
-}
-  \item{m2}{
-User defined ALINE symbol. See map() for details.
-}
+
 \item{alignment}{
 If TRUE the funciton will return the aligned IPA word pairs.}
 \item{mark}{
 If TRUE the result will mark the invalid characters with "@"
 }
-\item{feature.weights}{
-Other parameters passed to raw.alignment().}
-}
+
 
 \value{
 

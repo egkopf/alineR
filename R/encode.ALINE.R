@@ -35,7 +35,7 @@ encode.ALINE <-
         }
         
         if (!catch && i %nin% v){
-          message(paste("Invalid character: ",i,"in ",word))
+          # message(paste("Invalid character: ",i,"in ",word))
           i <- ifelse(mark,'@','') 
         }
         

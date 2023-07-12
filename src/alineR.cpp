@@ -15,11 +15,6 @@ extern "C"{
     // manually increase the length of accepted vectors
     char s1[200], s2[200];
     
-    
-    // printf("coeff -1: %d\n", INTEGER(coeff)[-1]);
-    // printf("coeff 0: %d\n", INTEGER(coeff)[0]);
-    // printf("coeff 1: %d\n", INTEGER(coeff)[1]);
-
     // copy the input strings
     strcpy(s1,CHAR(STRING_ELT(s,0)));
     strcpy(s2,CHAR(STRING_ELT(s,1)));

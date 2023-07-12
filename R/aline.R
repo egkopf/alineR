@@ -4,7 +4,7 @@
 # Includes modified C++ code originally developed by Greg Kondrak (c) 2000
 
 aline <-
-function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,mark=FALSE,alignment=TRUE,...){
+function(w1,w2,lang1=NULL,lang2=NULL,sim=TRUE,mark=TRUE,alignment=TRUE,...){
   
   if (!is.null(lang1)) {
     w1<-lapply(w1,lang1)
