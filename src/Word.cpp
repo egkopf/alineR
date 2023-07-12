@@ -22,6 +22,8 @@
 #include <stdlib.h>
 #define min(a,b) (((a)<(b))?(a):(b)))
 
+// Ejective, Implosive, and low-mid/high-mid differentiations added by E.K.
+
 // feature values
 const int FSyl = 0;
 	const fval syl = 100;
@@ -50,8 +52,8 @@ const int FStop  = 2;
         const fval stp = 100;
 const int FVoice = 3;
   const fval imp = 100;
-	const fval vce = 70;
-	const fval vls = 30;
+	const fval vce = 90;
+	const fval vls = 10;
 	const fval ejt = 0;
 const int FNasal = 4;
 	const fval nas = 100;
@@ -89,6 +91,7 @@ const int FDouble = 12;
 #define CNS nsl
 
 FVec Word::FCon[NSEG] = {
+  // Defaults edited by Ethan Kopf
     { FVW, low, frt }, // a
     { CNS, blb, stp, vce }, // b
     { CNS, pal, stp, vls }, // c
@@ -231,6 +234,7 @@ void Word::fconvert()
 }
 
 // modifies feature matrix
+// categories extended by Ethan Kopf
 void Word::modify( FP p, char c )
 {
     switch ( c )
