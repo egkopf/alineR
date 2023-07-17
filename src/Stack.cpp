@@ -45,7 +45,7 @@ void Stack::showAlign( Word *w, short row, char aback[50] )
     short len = w->phlen();
     int abackcount=0;
 
-    // Modified by G.S.
+    // Modified by G.S. and E.K.
     for ( short ind = 0; ind < top; ind++ )
     {
         short i = stack[row][ind];		// pointer to w.ind

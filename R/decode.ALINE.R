@@ -36,9 +36,8 @@ function(x,y) {
         }
       }
       if (invalid) {
-        t<-t[-j]
         message(paste("Invalid character:",t[j],"dropped in alignment"))
-        
+        t<-t[-j]
       }
     }
     j<-j+1
