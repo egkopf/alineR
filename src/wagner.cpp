@@ -21,7 +21,7 @@
 #include "Stack.h"
 #include "Word.h"
 
-// #define DEBUG			// debugging mode
+#define DEBUG			// debugging mode
 
 // exactly one of the following three names must be defined!
 //#define GLOBAL                // global comparison

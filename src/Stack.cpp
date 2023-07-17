@@ -55,14 +55,17 @@ void Stack::showAlign( Word *w, short row, char aback[50] )
                       aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;
+                      aback[abackcount]=' ';abackcount++;
                       break;
             case LIM: //printf( "|   " );
                       aback[abackcount]='|';abackcount++;
                       aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;
+                      aback[abackcount]=' ';abackcount++;
                       break;
             case DUB: //printf( "<   " );
                       aback[abackcount]='<';abackcount++;
+                      aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;
                       aback[abackcount]=' ';abackcount++;

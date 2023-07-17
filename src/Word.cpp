@@ -48,7 +48,7 @@ const int FStop  = 2;
         const fval vwl = hvl;
         const fval apr = 60;
         const fval frc = 80;
-        // const fval afr = 90;
+        const fval afr = 90;
         const fval stp = 100;
 const int FVoice = 3;
   const fval imp = 100;
@@ -285,6 +285,8 @@ void Word::modify( FP p, char c )
             break;
         case 'Y': p[FPlace] = pha;      // "pharYngeal"
             break;
+        case 'Z': p[FStop] = afr;       // "affricate_Z"
+            break; 
         default:
            // cout << "I don't know " << c << endl;
             assert( false );

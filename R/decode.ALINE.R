@@ -14,28 +14,34 @@ function(x,y) {
   t<-splitx[[1]]
   
   # make sure every character is present
-  for(j in 1:length(splitx[[1]])){
+  j<-1
+  while (j<=length(t)) {
     catch<-FALSE
     
     for(i in 1:length(map$U.Val)){
-      if(splitx[[1]][j]==intToUtf8(map$U.Val[i])){
+      if(t[j]==intToUtf8(map$U.Val[i])){
         catch=TRUE
         break
       }
     }
     if(!catch){
       invalid = TRUE
-      t<-splitx[[1]][-j]
+      
       for(i in 1:length(diacritics$U.Val)){
-        if(splitx[[1]][j]==intToUtf8(diacritics$U.Val[i])){
+        if(t[j]==intToUtf8(diacritics$U.Val[i])){
+          if ((diacritics$Aline[i] == "") || (strtoi(strsplit(diacritics$A.Val[i][1], " ")[1][[1]][1]) <= 90)) {
+            t<-t[-j]
+          }
           invalid = FALSE
         }
       }
       if (invalid) {
-        message(paste("Invalid character:",splitx[[1]][j],"dropped in alignment"))
+        t<-t[-j]
+        message(paste("Invalid character:",t[j],"dropped in alignment"))
         
       }
     }
+    j<-j+1
   }
   
   #put it back in?
@@ -58,7 +64,7 @@ function(x,y) {
 
  aligned_y=rep(" ",num)
   
-  p=0
+p=0
   
  for (i in 1:(length(J)))
  { 

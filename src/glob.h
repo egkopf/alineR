@@ -39,7 +39,7 @@ const int OFFSET = 32;      // = ord('a') - ord('A')
 const int NUL = -1;         // empty alignment
 const int LIM = -2;         // border character (for local comparison)
 const int DUB = -3;         // double linking (for compression)
-const int TAB = 4;          // output space for one phoneme
+const int TAB = 5;          // output space for one phoneme
 const int PLEN = 42;        // max word phonemic length (+2)
 const int ELEN = 30;        // max word representation length
 const int NSEG = 26;        // number of recognized segments
