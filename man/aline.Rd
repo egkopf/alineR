@@ -31,7 +31,7 @@ By default calculates the aline distance (normalized between word pairs) as defi
 \item{alignment}{
 If TRUE the funciton will return the aligned IPA word pairs.}
 \item{mark}{
-If TRUE the result will mark the invalid characters with "@"
+If TRUE the result will mark the invalid characters with "@"}
 }
 
 
