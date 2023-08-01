@@ -1,4 +1,4 @@
-raw.alignment <-function(s,Syllabic=20,Place=70,Stop=90,Voice=15,Nasal=15,Retroflex=15,Lateral=5,Aspirated=1,Long=5,High=5,Back=5,Round=5,sk=10)
+raw.alignment <-function(s,Syllabic=20,Place=70,Stop=90,Voice=15,Nasal=15,Retroflex=15,Lateral=5,Aspirated=1,Long=5,High=5,Back=5,Round=5,sk=15)
   {
     
     ### Input Arguments ###  

@@ -54,7 +54,7 @@ function(x,y) {
   for(i in 1:(num-1))
   {
     # if there's a space in the next spot
-    if (!splity[[1]][i]==" " && (i==1||splity[[1]][i-1]==" "))
+    if (!splity[[1]][i]==" " && (i==1||splity[[1]][i-1]==" ")) # modified by EK to fix off-by-one error
     {
       J[j]=i
       j=j+1    
