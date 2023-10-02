@@ -3,44 +3,39 @@
 # This software is distributed under GPL-3.
 
 decode.ALINE <-
-function(x,y) {
-  map<-read.csv("./data/aline_mapset_workingcopy.csv")
+function(x,y,m1=NULL,m2=NULL) {
+  map<-map(m1,m2)
   diacritics<-read.csv("./data/aline_diacritic_set.csv")
   
   splitx<-strsplit(x,"")
   splity<-strsplit(y,"")  
-  
+   
   # put in the first token split by character
   t<-splitx[[1]]
   
   # make sure every character is present
-  j<-1
-  while (j<=length(t)) {
+  for(j in 1:length(splitx[[1]])){
     catch<-FALSE
     
     for(i in 1:length(map$U.Val)){
-      if(t[j]==intToUtf8(map$U.Val[i])){
+      if(splitx[[1]][j]==intToUtf8(map$U.Val[i])){
         catch=TRUE
         break
       }
     }
     if(!catch){
       invalid = TRUE
-      
+      t<-splitx[[1]][-j]
       for(i in 1:length(diacritics$U.Val)){
-        if(t[j]==intToUtf8(diacritics$U.Val[i])){
-          if ((diacritics$Aline[i] == "") || (strtoi(strsplit(diacritics$A.Val[i][1], " ")[1][[1]][1]) <= 90)) {
-            t<-t[-j]
-          }
+        if(splitx[[1]][j]==intToUtf8(diacritics$U.Val[i])){
           invalid = FALSE
         }
       }
       if (invalid) {
-        message(paste("Invalid character:",t[j],"dropped in alignment"))
-        t<-t[-j]
+        message(paste("Invalid character:",splitx[[1]][j],"dropped in alignment"))
+        
       }
     }
-    j<-j+1
   }
   
   #put it back in?
@@ -54,7 +49,7 @@ function(x,y) {
   for(i in 1:(num-1))
   {
     # if there's a space in the next spot
-    if (!splity[[1]][i]==" " && (i==1||splity[[1]][i-1]==" ")) # modified by EK to fix off-by-one error
+    if (!splity[[1]][i]==" " && (i==1||splity[[1]][i-1]==" "))
     {
       J[j]=i
       j=j+1    
@@ -63,7 +58,7 @@ function(x,y) {
 
  aligned_y=rep(" ",num)
   
-p=0
+  p=0
   
  for (i in 1:(length(J)))
  { 
