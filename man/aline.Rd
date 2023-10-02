@@ -8,7 +8,7 @@ Calculate aline distances
 The main user function for returning Aline Distances. Also it provides options for additional outputs such as the raw alignments and individual distance measurements. Word lists are passed as two vectors (w1, w2) such that the nth element of each vector are compared.
 }
 \usage{
-function(w1,w2,lang1 = NULL,lang2 = NULL,sim = TRUE,mark = TRUE,alignment = TRUE)
+aline(w1,w2,lang1 = NULL,lang2 = NULL,sim = TRUE,mark = TRUE,alignment = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
