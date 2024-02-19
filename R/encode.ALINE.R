@@ -4,7 +4,7 @@
 
 encode.ALINE <-
   function(x, mark=FALSE, m1=NULL, m2=NULL){
-    map<-map(m1,m2)
+    map<-read.csv("./data/aline_mapset_workingcopy.csv")
     diacritics<-read.csv("./data/aline_diacritic_set.csv")
 
     v<-intToUtf8(c(65:90, 97:122), multiple=T) 
